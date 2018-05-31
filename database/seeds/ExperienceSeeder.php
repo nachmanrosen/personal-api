@@ -11,7 +11,7 @@ class ExperienceSeeder extends Seeder
      */
     public function run()
     {   DB::table('experiences')->insert([
-        'jobTitle' => ('Web Developer'),
+        'jobTitle' => ('Volunteer Web Developer'),
         'employer' => ('Holiday Labels'),
         'date' =>('July -November 2017'),
     ]);
@@ -23,7 +23,7 @@ class ExperienceSeeder extends Seeder
         DB::table('experiences')->insert([
             'jobTitle' => ('Intern'),
             'employer' => ('Bitbeans'),
-            'date' =>('2018'),
+            'date' =>('Spring 2018'),
         ]);
        
     }
