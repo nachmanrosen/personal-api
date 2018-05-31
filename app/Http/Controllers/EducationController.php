@@ -17,10 +17,21 @@ class InstitutionController extends Controller
     }
 
     public function institutionId($id){
-     //echo "https://api.nachman-rosen.local/api/institutions/id";
-     return  new InstitutionResource(Institution::find($id));
+     
+     $result=Institution::find($id);
+        if ( !$result)
+    {
+        return response()->json(['errors' => [ 
+            'status'=> '404', 
+            'source'=>[
+                'pointer'=>'institutions/id'],
+             'detail'=>'Record not found'
+            ]], 404);
+    } else{
+        return new InstitutionResource(Institution::find($id));
     }
-
+     
+    }
 
 
 }   

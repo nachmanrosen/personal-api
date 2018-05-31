@@ -10,8 +10,9 @@ use App\Http\Resources\exp as expResource;
 class ExperienceController extends Controller
 {
 
+   
 
-
+   
     public function experience(){
         // echo "https://api.nachman-rosen.local/data /experience";
        return  expResource::collection(Experience::all());
@@ -20,7 +21,19 @@ class ExperienceController extends Controller
 
     public function experienceId($id){
        // echo "https://api.nachman-rosen.local/data/experience/id";
-       return new ExperienceResource(Experience::find($id));
+        $result=Experience::find($id);
+        if ( !$result)
+    {
+        return response()->json(['errors' => [ 
+            'status'=> '404', 
+            'source'=>[
+                'pointer'=>'experience/id'],
+             'detail'=>'Record not found'
+            ]], 404);
+    } else{
+        return new ExperienceResource(Experience::find($id));
+    }
+
     }
 
 

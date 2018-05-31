@@ -16,7 +16,20 @@ class CategorySkillController extends Controller
 
     public function skillsId($id){
      //echo "https://api.nachman-rosen.local/api/skills/id";
-     return  new SkillResource(SkillCategories::find($id));
+
+     $result=SkillCategories::find($id);
+        if ( !$result)
+    {
+        return response()->json(['errors' => [ 
+            'status'=> '404', 
+            'source'=>[
+                'pointer'=>'skills/id'],
+             'detail'=>'Record not found'
+            ]], 404);
+    } else{
+        return new SkillResource(SkillCategories::find($id));
+    }
+     
     }
 
 

@@ -30,7 +30,11 @@ Route::get('/skills', 'CategorySkillController@skills');
 Route::get('/skills/{id}', 'CategorySkillController@skillsId');
 
 Route::fallback(function(){
-   // return 'Sorry. This resource does not exist.';
-   return response()->json(['message' => 'Not Found!'], 404);
+   return response()->json(['errors' => [ 
+       'status'=> '404', 
+       'source'=>[
+           'pointer'=>'institutions'],
+        'detail'=>'resource not found'
+       ]], 404);
 
 });
