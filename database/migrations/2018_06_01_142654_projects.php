@@ -13,13 +13,13 @@ class Projects extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('myProjects', function (Blueprint $table) {
          $table->increments('id');
         $table->string('project');
         $table->string('description');
         $table->string('url');
-        $table->string('github code');
-        $table->string('skills used');
+        $table->string('githubCode');
+        $table->string('skillsUsed');
         $table->timestamps();
     });
     }

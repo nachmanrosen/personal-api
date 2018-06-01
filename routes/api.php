@@ -29,6 +29,10 @@ Route::get('/skills', 'CategorySkillController@skills');
 
 Route::get('/skills/{id}', 'CategorySkillController@skillsId');
 
+Route::get('/projects', 'ProjectsController@projects');
+
+Route::get('/projects/{id}', 'ProjectsController@projectsId');
+
 Route::fallback(function(){
    return response()->json(['errors' => [ 
        'status'=> '404', 
