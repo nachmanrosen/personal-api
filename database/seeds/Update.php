@@ -38,7 +38,7 @@ class UpdateSeeder extends Seeder
         'github code' =>('github.com/nachmanrosen/Projects/tree/SupperGenerator
         '),
         'skills used' =>('PHP, MySQL, HTML, CSS, JavaScript, AJAX'),
-    ])
+    ]);
     DB::table('projects')->insert([
         'project' => ('PersonalAPI'),
         'description' => ('Used Laravel to develop a RESTful Open API with standard JSON-API format. Used Swagger Editor to make OpenAPI Specifications '),
