@@ -18,7 +18,7 @@ class proj extends JsonResource
             'type'=> 'projects',
             'id' => $this->id,
             'attributes' => [
-            'projects'=>$this->projects,]
+            'project'=>$this->project,]
         ];
     }
 }

@@ -17,7 +17,7 @@ class Projects extends JsonResource
         return [
             'type'=>'projects',
             'id' => $this->id,
-            'attributes' => ['project'=>$this->projects,
+            'attributes' => ['project'=>$this->project,
             'description'=>$this->description,
             'url'=>$this->url,
             'github code'=>$this->githubCode,
