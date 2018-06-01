@@ -47,3 +47,4 @@ class UpdateSeeder extends Seeder
         'skills used' =>('Laravel, vagrant virtual machine, Swagger Editor'),
     ]);
 }
+}
