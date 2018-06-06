@@ -21,6 +21,7 @@ class ApiRequests extends Migration
             $table->string('method');
             $table->string('url_content');
             $table->string('query_params');
+             $table->string('query_keys');
             $table->timestamps();
         });
     }
