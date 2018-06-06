@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Request extends Model
 
 {
-    protected $table= "api_requests";
+    protected $table= "api_request";
 }

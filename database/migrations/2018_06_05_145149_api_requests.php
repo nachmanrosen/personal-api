@@ -13,7 +13,7 @@ class ApiRequests extends Migration
      */
     public function up()
     {
-        Schema::create('api_requests', function (Blueprint $table) {
+        Schema::create('api_request', function (Blueprint $table) {
             $table->increments('id');
             
             $table->string('IP_Address');
@@ -21,6 +21,7 @@ class ApiRequests extends Migration
             $table->string('method');
             $table->string('url_content');
             $table->string('query_params');
+            $table->string('query_keys');
             $table->timestamps();
         });
     }

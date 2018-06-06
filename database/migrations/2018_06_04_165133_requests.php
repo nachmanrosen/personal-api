@@ -13,7 +13,7 @@ class Requests extends Migration
      */
     public function up()
     {
-        Schema::create('api_requests', function (Blueprint $table) {
+       /* Schema::create('api_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('api_id');
             $table->string('IP_Address');
@@ -30,7 +30,7 @@ class Requests extends Migration
      *
      * @return void
      */
-    
+}
     public function down()
     {
         //Schema::drop('requets');
