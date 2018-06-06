@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ApiRequest1 extends Migration
+/*class ApiRequest1 extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     */
+     
     public function up()
     {
         Schema::create('api_request1', function (Blueprint $table) {
