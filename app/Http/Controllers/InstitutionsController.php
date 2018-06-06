@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Route::apiResource('institutions', 'InstitutionsController');
+
 class InstitutionsController extends Controller
 {
    
@@ -25,8 +25,19 @@ class InstitutionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = $request->query('id');
+        $method = $request->method();
+        $url = $request->fullUrl();
+      
+       if($id){
+        DB::table('requests')->insert([
+            'userID' => ($id),
+            'fullURL' => ($url),
+            'method' =>($method),
+        ]);
+       }
     }
+    
 
     /**
      * Display the specified resource.

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Projects extends Migration
+class Users extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,20 @@ class Projects extends Migration
      */
     public function up()
     {
-      /*  Schema::create('myProjects', function (Blueprint $table) {
-         $table->increments('id');
-        $table->string('project');
-        $table->string('description');
-        $table->string('url');
-        $table->string('githubCode');
-        $table->string('skillsUsed');
-        $table->timestamps();
-    });
+      /*  Schema::create('apiUsers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('userID');
+            $table->string('password');
+            $table->timestamps();
+        });
     }
-*/
-    }
+    
     /**
      * Reverse the migrations.
      *
      * @return void
      */
+}
     public function down()
     {
         //

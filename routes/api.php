@@ -16,8 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/requests', 'InstitutionController@getRequests' );
+Route::get('/requests/{id}', 'InstitutionController@getRequestsId' );
 
-Route::get('/institutions', 'InstitutionController@institution');
+Route::get('/institutions', 'InstitutionController@store' );
 
 Route::get('/institutions/{id}', 'InstitutionController@institutionId');
 
