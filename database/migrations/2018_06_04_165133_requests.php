@@ -30,11 +30,8 @@ class Requests extends Migration
      *
      * @return void
      */
-<<<<<<< HEAD
-    }
-=======
+    
 }
->>>>>>> c77b64f7c3782e04ac76ddfc1516d46960e1ed0b
     public function down()
     {
         //Schema::drop('requets');

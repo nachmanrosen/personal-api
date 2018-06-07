@@ -24,11 +24,7 @@ class InstitutionController extends Controller
         $req->IP_Address=$request->ip();
         $req->method=$request->method();
         //$req->headers=implode( $request->header('content-type'), ',');
-<<<<<<< HEAD
-        //var_dump($request->header());
-=======
        // var_dump($request->header());
->>>>>>> c77b64f7c3782e04ac76ddfc1516d46960e1ed0b
         $req->url_content=$request->url();
         
         $req->query_params=implode( $request->query(), ',');
