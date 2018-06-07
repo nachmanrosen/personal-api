@@ -76,6 +76,9 @@ class InstitutionController extends Controller
         return REQU::find($id);
     
     }
+    public function error(){
+        
+    }
 
    
 }   
