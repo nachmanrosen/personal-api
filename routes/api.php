@@ -39,6 +39,21 @@ Route::get('/projects', 'ProjectsController@projects');
 
 Route::get('/projects/{id}', 'ProjectsController@projectsId');
 
+//Route::resource('/posts', 'Posts');
+
+Route::post('/post', 'Posts@store');
+
+Route::patch('/patch/{id}', 'Posts@update');
+
+Route::put('/put/{id}', 'Posts@update');
+
+Route::delete('/delete/{id}', 'Posts@destroy');
+
+
+
+
+
+
 Route::fallback(function(){
    return response()->json(['errors' => [ 
        'status'=> '404', 
