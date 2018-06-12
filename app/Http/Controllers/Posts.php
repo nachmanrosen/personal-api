@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Resources\getPosts as getPostsResource;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -14,7 +14,7 @@ class Posts extends Controller
      */
     public function index()
     {
-        //
+        return  getPostsResource::collection(Post::all());
     }
 
     /**

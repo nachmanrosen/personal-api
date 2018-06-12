@@ -49,6 +49,8 @@ Route::put('/put/{id}', 'Posts@update');
 
 Route::delete('/delete/{id}', 'Posts@destroy');
 
+Route::get('/posts', 'Posts@index');
+
 
 
 
