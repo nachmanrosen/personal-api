@@ -79,13 +79,33 @@ class Posts extends Controller
             return response()->json(['errors' => [ 
                 'status'=> '404', 
                 'source'=>[
-                    'pointer'=>'put/patch'],
+                    'pointer'=>'put'],
                  'detail'=>'Record not found'
                 ]], 404);
         } else{
             
         $input = $request->all();
         $updatePost->username=$input['username'];
+        $updatePost->post=$input['post'];
+        $updatePost->save();
+        }
+        
+    }
+    public function patch(Request $request, $id)
+    {
+        $updatePost=Post::find($id);
+
+        if(!$updatePost) {
+            return response()->json(['errors' => [ 
+                'status'=> '404', 
+                'source'=>[
+                    'pointer'=>'patch'],
+                 'detail'=>'Record not found'
+                ]], 404);
+        } else{
+            
+        $input = $request->all();
+       
         $updatePost->post=$input['post'];
         $updatePost->save();
         }

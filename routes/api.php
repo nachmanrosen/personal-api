@@ -43,7 +43,7 @@ Route::get('/projects/{id}', 'ProjectsController@projectsId');
 
 Route::post('/post', 'Posts@store');
 
-Route::patch('/patch/{id}', 'Posts@update');
+Route::patch('/patch/{id}', 'Posts@patch');
 
 Route::put('/put/{id}', 'Posts@update');
 
