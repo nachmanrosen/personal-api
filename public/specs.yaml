@@ -1,0 +1,758 @@
+openapi: "3.0.1"
+
+info:
+  title: 'Nachman Rosen Open API'
+  description: "This RESTful API provides data about Nachman Rosen's technological skills, projects, and job experience. The user can also POST, PUT, PATCH, and DELETE posts"
+  version: "1.1"
+  termsOfService: ''
+  contact:
+    name: Nachman Rosen OpenAPI
+    url: 'http://nachmanapi.work/api/'
+    #email: nachmanrosen@gmail.com
+  license:
+    name: ' '
+    url: 'http://nachmanapi.work/'
+    
+servers: 
+ - url: 'http://nachmanapi.work/api/'
+  
+
+paths:
+  /institutions:
+    get:
+      tags:
+        - institutions
+      summary: 
+        -my education
+      description: Nachman Rosen's institutions of education 
+      operationId: Education
+      parameters:
+      - name: school
+        in: query
+        description: "**Name of School attended**. *Example:School of Evoloving Technology*"
+        schema: 
+          type: string
+        example: School of Evoloving Technology
+        
+      - name: id
+        in: query
+        description: "**SchoolID**"
+        schema: 
+          type: string
+        example: '1'
+        
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/institutions'
+          
+  
+        404:
+          description: response not found
+          content: 
+            text/plain:
+              schema: 
+                title: Institution not found
+                type: string
+                example: Institution not found
+                
+  /institutions/{id}:
+    get:
+      tags:
+        - institutions
+      summary: 
+        -my education
+      description: Nachman Rosen's education
+      operationId: Education
+      
+      parameters:
+        - name: id
+          in: path
+          description: "**institutionID**"
+          required: true
+          schema: 
+            type: string
+          example: '1'
+        
+          
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/institutionsId'
+          
+  
+        404:
+          description: response not found
+          content: 
+            text/plain:
+              schema: 
+                title: Institution not found
+                type: string
+                example: Institution not found
+
+  /experience:
+   get:
+    tags: 
+      - work experience
+    summary:
+      -my work experience
+    description: Nachman Rosen's work experience
+  
+    operationId: Work Experience
+  
+    parameters:
+      - name: jobTitle
+        in: query
+        description: "**job title**. *Example:Web Developer*"
+        schema: 
+          type: string
+        example: Web Developer
+  
+      - name: id
+        in: query
+        description: "**id**. *Example:1*"
+        schema:
+          type: string
+        example: '1'
+  
+  
+    responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/experience'
+          
+  
+        404:
+          description: response not found
+          content: 
+            text/plain:
+              schema: 
+                title: Employer not found
+                type: string
+                example: employer not found
+                
+  /experience/{id}:
+    get:
+      tags:
+      - work experience 
+      summary:
+        work experience by id
+      description: work experience by id
+      operationId: experienceId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "work experience by id"
+          schema:
+            type: string
+          example: '1'
+          
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/experienceId'
+          
+  
+        404:
+          description: response not found
+          content: 
+            text/plain:
+              schema: 
+                title: Employer not found
+                type: string
+                example: employer not found
+      
+  /skills:
+    get:
+      tags: 
+      - skills
+      summary:
+         'categories of my programming skills'
+      description: categories of programming skills
+  
+      operationId: skills category
+  
+  
+      parameters:
+      - name: category
+        in: query
+        description: "**skills category**. *Example:Languages*"
+        schema: 
+          type: string
+        example: Languages
+  
+      - name: id
+        in: query
+        description: "**id**. *Example:1*"
+        schema:
+          type: string
+        example: '1'
+        
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/categories'
+          
+  
+        404:
+          description: response not found
+          content: 
+            text/plain:
+              schema: 
+                title:  not found
+                type: string
+                example:  not found
+                
+  /skills/{id}:
+    get:
+      tags: 
+      - skills
+      summary:
+        -list of skills in category
+      description: Nachman Rosen's programming skills for a specific category
+  
+      operationId: list programming skills
+  
+      parameters:
+      - name: id
+        in: path
+        description: "id of programming category"
+        required: true
+        schema: 
+          type: string
+        example: '1'
+      
+      
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Skills'
+          
+  
+        404:
+          description: response not found
+          content: 
+            text/plain:
+              schema: 
+                title: category not found
+                type: string
+                example: category not found
+                
+  /projects:
+    get:
+      tags:
+      - projects
+      summary: 
+        my web projects
+      description: Nachman Rosen's web projects
+      operationId: web projects
+      
+      parameters:
+      - name: project
+        in: query
+        description: ''
+        schema: 
+          type: string
+        example: 'api'
+        
+      - name: id
+        in: query
+        description: "**id**. *Example:1*"
+        schema:
+          type: string
+        example: '1'
+      
+      
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Projects'
+          
+  
+        404:
+          description: response not found
+          content: 
+            text/plain:
+              schema: 
+                title: resource not found
+                type: string
+                example:  resource not found
+                
+  /projects/{id}:
+    get:
+      tags: 
+      - projects
+      summary:
+         details of web projects 
+      description: Nachman Rosen's programming skills for a specific category
+  
+      operationId: details of web projects
+  
+      parameters:
+      - name: id
+        in: path
+        description: "id of project"
+        required: true
+        schema: 
+          type: string
+        example: '1'
+      
+      
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ProjectId'
+  /posts :
+    get:
+      tags:
+        - posts
+      summary: 'get all posts'
+      description: Get posts
+      operationId: Posts
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema: 
+                title: successful get
+                type: string
+                example: successful get
+        '404':
+          description: Invalid get
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string               
+  /post :
+    post:
+      tags:
+        - posts
+      summary: 'send posts'
+      description: Posts
+      operationId: Posts
+      
+      
+      requestBody: 
+        content: 
+          application/json : 
+            schema: 
+              type: object
+              properties: 
+                username: 
+                  description: 'UserName'
+                  type: 'string'
+                  example: 'Nachman'
+              
+                post: 
+                  description: 'Post content'
+                  type: 'string'
+                  example: 'Use Postman to send the post request body'
+      responses:
+        '200':
+          description: successful post
+          content:
+            text/plain:
+              schema:
+                title: successful post
+                type: string
+                example: successful post
+        '404':
+          description: Invalid post
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string
+      
+  /put/{id}/ :
+    put:
+      tags:
+        - posts
+      summary: 'update entire post using put'
+      description: Put
+      operationId: Put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "**id**. *Example:1*"
+        schema:
+          type: string
+        example: '1'
+      
+      
+      requestBody: 
+        content: 
+          application/json : 
+            schema: 
+              type: object
+              properties: 
+                username: 
+                  description: 'Update UserName'
+                  type: 'string'
+                  example: David
+              
+                post: 
+                  description: 'Update Post content'
+                  type: 'string'
+                  example: 'Put requests update entire post' 
+      responses:
+        '200':
+          description: successful response
+          content:
+            text/plain:
+              schema:
+                title: successful update
+                type: string
+                example: successful update
+        '404':
+          description: Invalid  put request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string
+      
+  /patch/{id}/ :
+    patch:
+      tags:
+        - posts
+      summary: 'update content of a post using patch'
+      description: Put
+      operationId: Put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "**id**. *Example:1*"
+        schema:
+          type: string
+        example: '1'
+      
+      
+      requestBody: 
+        content: 
+          application/json : 
+            schema: 
+              type: object
+              properties: 
+                
+              
+                post: 
+                  description: 'Update Post content'
+                  type: 'string'
+                  example: 'Patch requests update part of a post'        
+      responses:
+        '200':
+          description: successful response
+          content:
+            text/plain:
+              schema:
+                title: successful patch 
+                type: string
+                example: successful patch
+        '404':
+          description: Invalid  patch request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string
+  /delete/{id}:
+    delete:
+      tags: 
+      - posts
+      summary:
+         delete posts 
+      description: delete posts 
+  
+      operationId: delete posts 
+  
+      parameters:
+      - name: id
+        in: path
+        description: "id of post"
+        required: true
+        schema: 
+          type: string
+        example: '1'
+      
+      
+      responses:
+        200:
+          description: successful response
+          content: 
+            application/json:
+              schema:
+                title: successful delete 
+                type: string
+                example: successful delete
+                
+      
+components:
+  schemas:
+    institutions:
+      title: education response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              type: 
+                type: string
+              id: 
+                type: string
+                example: '1'
+              attributes:
+                type: object
+                properties:
+                  school:
+                    type: string
+                    description: 'Name of School'
+                    example: 'School of Evolving Technology'
+    institutionsId:
+      title: educationId response
+      type: object
+      properties: 
+        data: 
+          type: array
+          items: 
+            type: object
+            properties:
+              type: 
+                type: string
+              id: 
+                type: string
+                example: '1'
+              attributes:
+                type: object
+                properties:
+                  school:
+                    type: string
+                    description: 'Name of School'
+                    example: 'School of Evolving Technology'
+                  date:
+                    type: string
+                    description: 'Dates attended'
+                    example: '2015-2018'
+                  subject:
+                    type: string
+                    description: 'Subject studied'
+                    example: 'Programming'
+    experience:
+      title: experience response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+                type:
+                  type: string
+                id:
+                  type: string
+                  example: '1'
+                attributes:
+                  type: object
+                  properties:
+                    jobTitle:
+                      type: string
+                      description: 'job title'
+                      example: 'Web Developer'
+      
+    experienceId:
+      title: experienceId response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+                type:
+                  type: string
+                id:
+                  type: string
+                  example: '1'
+                attributes:
+                  type: object
+                  properties:
+                    jobTitle:
+                      type: string
+                      description: 'job title'
+                      example: 'Web Developer'
+                    employer:
+                      type: string
+                      description: 'name of employer'
+                      example: Kids and Family
+                    date: 
+                      type: string
+                      description: 'dates of employment'
+                      example: 5/12/2017-6/12/2018
+            
+        
+    categories:
+      title: categories response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+                type:
+                  type: string
+                id:
+                  type: string
+                  example: '1'
+                attributes:
+                  type: object
+                  properties:
+                    category:
+                      type: string
+                      description: 'categories of my technological skills'
+                      example: Frameworks
+        
+      
+    Skills:
+      title:  skills response
+      type: object
+      
+      properties:
+      
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+                type:
+                  type: string
+                id:
+                  type: string
+                  example: '1'
+                attributes:
+                  type: object
+                  properties:
+                    skills:
+                      type: string
+                      description: 'A list of my skills for a specific category'
+                      example: Laravel, Angular, React
+                      
+    Projects:
+      title: project response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+                type:
+                  type: string
+                id:
+                  type: string
+                  example: '1'
+                attributes:
+                  type: object
+                  properties:
+                    project:
+                      type: string
+                      description: 'my web projects'
+                      example: Personal API
+                      
+    ProjectId:
+      title: projectId response
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+                type:
+                  type: string
+                id:
+                  type: string
+                  example: '1'
+                attributes:
+                  type: object
+                  properties:
+                    project:
+                      type: string
+                      description: ''
+                      example: 'Personal API'
+                    description:
+                      type: string
+                      description: ''
+                      example: Used Laravel to develop a RESTful Open API with standard JSON-API format
+                    url: 
+                      type: string
+                      description: 'url of project'
+                      example: www.nachmanapi.work/api/
+                    githubCode: 
+                      type: string
+                      description: 'code for project'
+                      example: github.com/nachmanrosen/personal-api
+                    skillsUsed: 
+                      type: string
+                      description: 'skills used to make project'
+                      example: 'Laravel, Vagrant'
+  
+    
+
+  securitySchemes:
+      app_id:
+        type: apiKey
+        description: An API key to access the Nachman Rosen API.
+        name: appid
+        in: query
+
+
+security:
+- app_id: []
+
+tags:
+  - name: institutions, experience, skills, projects, posts
+    description: my educational institutions, my work experience, my technological skills for a given category, my web projects, and send posts.
+
+externalDocs:
+  description: API documentation
+  url:  ''

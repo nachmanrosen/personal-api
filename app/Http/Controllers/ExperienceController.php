@@ -11,11 +11,12 @@ use Illuminate\Http\Request;
 
 class ExperienceController extends Controller
 {
-
+   
    
 
    
     public function experience(Request $request){
+       
         $req=new REQU;
 
         
@@ -34,6 +35,7 @@ class ExperienceController extends Controller
     }
 
     public function experienceId($id){
+        
        // echo "https://api.nachman-rosen.local/data/experience/id";
         $result=Experience::find($id);
         if ( !$result)
